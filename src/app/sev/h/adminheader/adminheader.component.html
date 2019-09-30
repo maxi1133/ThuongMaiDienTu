@@ -1,0 +1,9 @@
+<mat-sidenav-container>
+   <mat-sidenav mode='side' [(opened)]='opened'>
+      Sidenav
+   </mat-sidenav>
+   <mat-sidenav-content>
+      <button (click)="opened=!opened">+</button>
+      <router-outlet></router-outlet>
+   </mat-sidenav-content>
+</mat-sidenav-container>

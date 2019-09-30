@@ -1,32 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink="">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="NavigateBar">
+
+  <a class="navbar-brand" routerLink="" (click)="onHomeClick()">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+
+      <li class="nav-item ">
+        <a class="nav-link btn btn-light" routerLink="" (click)="onHomeClick()">Home </a>
       </li>
 
-
-      <li class="nav-item dropdown">
-          <a class="dropbtn nav-link" routerLink="sanpham/tatca">Sản phẩm</a>
-          <div class="dropdown-content">
-            <a routerLink="sanpham/tra">Link 1</a>
-            <a routerLink="sanpham/trasua">Link 2</a>
-            <a routerLink="sanpham/cafe">Link 3</a>
-            <a routerLink="sanpham/daxay">Đá xay</a>
-          </div>
+      <li class="nav-item dropdown" *ngIf="admin.Admin == false">
+        <a class="dropbtn nav-link btn btn-light" routerLink="sanpham/tatca">Sản phẩm</a>
+        <div class="dropdown-content">
+          <a routerLink="sanpham/tra">Link 1</a>
+          <a routerLink="sanpham/trasua">Link 2</a>
+          <a routerLink="sanpham/cafe">Link 3</a>
+        </div>
       </li>
 
     </ul>
 
-    <div class="form-inline my-2 my-lg-0">
-      <a routerLink="giohang" class="btn btn-light"><i class="fas fa-shopping-cart"></i></a>
-      <a class="btn btn-light" routerLink="admin"> <i class="far fa-user"></i></a>
-    </div>
+    <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item ">
+        <a routerLink="giohang" class="btn btn-light  nav-link"> <i class="fas fa-shopping-cart"><span
+              class="badge badge-light">1</span></i></a>
+      </li>
 
+      <li class="dropdown nav-item">
+        <a class="dropbtn nav-link btn btn-light ">Welcome, <span
+            style="font: italic bold 12px/30px Georgia, serif;">{{admin.User.Ten}}</span>
+        </a>
+
+        <div class="dropdown-content">
+          <a *ngIf="admin.User.IsLogIn != true" style="cursor: pointer" routerLink='Signin'
+            (click)="expression">SignIn</a>
+
+          <a *ngIf="admin.User.IsLogIn == true" style="cursor: pointer">User</a>
+          <a *ngIf="admin.User.IsLogIn == true && admin.User.Role =='Admin'" routerLink='Admin' style="cursor: pointer">Admin</a>
+          <a *ngIf="admin.User.IsLogIn == true" style="cursor: pointer" (click)="onLogOut()">Log out</a>
+        </div>
+      </li>
+
+    </ul>
   </div>
 </nav>

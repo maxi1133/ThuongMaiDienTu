@@ -1,1 +1,36 @@
-<p>sev works!</p>
+<div class="container" style="border: 1px solid blue ; min-height: 100%">
+    <div style="margin-top:auto">
+        <div class="row">
+            <h3 class="col-md-12 text-center"> Sign In !</h3>
+        </div>
+        <div class="row">
+            <div class="container " (keyup.enter)="onLogInClick()">
+                <div class="row form-group">
+                    <label class="col-md-4 text-center" style="margin-top: auto;margin-bottom: auto"> Tài khoản: </label>
+                    <input type="text " class="col-md-6 form-control" placeholder="Nhập tài khoản" [(ngModel)]="TK">
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-4 text-center" style="margin-top: auto;margin-bottom: auto"> Mật khẩu :
+                    </label>
+                    <input type="text" class="col-md-6 form-control" placeholder="Nhập mật khẩu" [(ngModel)]="MK">
+                </div>
+                <button type="submit" class="btn btn-primary col-md-2 text-center " (click)="onLogInClick()">Đăng nhập</button>
+                <button type="submit" class="btn btn-success col-md-2 text-center "> Đăng kí</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+
+
+
+<br>
+<div class="container" style="border: red 1px solid;">
+    {{TK}}:{{MK}}
+    <br>
+    <div *ngFor="let item of admin.ListTK">
+        {{item.TK}}:{{item.MK}}
+    </div>
+</div>
