@@ -1,0 +1,64 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar color="primary"> DashBoard</mat-toolbar>
+
+    <mat-nav-list>
+
+      <a mat-list-item>
+        DashBoard
+        <a (click)="changeStatusShow(0)" class="btn t"><i class="fas fa-plus"></i></a>
+      </a>
+      <div *ngIf="isShow[0]" style="margin-left: 20px; border: blue 1px solid">
+        <a mat-list-item>1 </a>
+        <a mat-list-item>2 </a>
+        <a mat-list-item>3 </a>
+      </div>
+
+
+      <a mat-list-item>
+        DashBoard
+        <a (click)="changeStatusShow(1)" class="btn t"><i class="fas fa-plus"></i></a>
+      </a>
+      <div *ngIf="isShow[1]" style="margin-left: 20px; border: blue 1px solid">
+        <a mat-list-item>1 </a>
+        <a mat-list-item>2 </a>
+        <a mat-list-item>3 </a>
+      </div>
+
+
+      <a mat-list-item>
+        DashBoard
+        <a (click)="changeStatusShow(2)" class="btn t"><i class="fas fa-plus"></i></a>
+      </a>
+      <div *ngIf="isShow[2]" style="margin-left: 20px; border: blue 1px solid">
+        <a mat-list-item>1 </a>
+        <a mat-list-item>2 </a>
+        <a mat-list-item>3 </a>
+      </div>
+      <hr>
+
+      <a routerLink='' mat-list-item>Back to client side <a class="btn t"><i class="fas fa-arrow-alt-circle-left"></i></a> </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <span class="spacer"></span>
+      <a mat-list-item>Link 1</a>
+      <a mat-list-item>Link 2</a>
+      <a mat-list-item>Link 3</a>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

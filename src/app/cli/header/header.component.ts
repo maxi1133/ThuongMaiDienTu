@@ -11,9 +11,11 @@ import { Khachhang } from "src/app/service-model/khachhang";
 export class HeaderComponent implements OnInit {
   constructor(private admin: AdminService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    document.getElementById('openButton').className ='navbar-toggler collapsed'
+  }
 
-  onClickToAdmin(event) {
+  onClickToAdmin() {
     this.admin.Admin = !this.admin.Admin;
 
     if (this.admin.Admin) {
@@ -22,15 +24,25 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(["/home"]);
     }
   }
-
+// navbar-toggler collapsed
   onHomeClick() {
     this.admin.Admin = false;
+    if(document.getElementById('openButton').className =='navbar-toggler collapsed')
+    {
+
+    }else{
+      document.getElementById('openButton').click()
+    }
   }
 
   onLogOut() {
     this.admin.User = this.admin.Guest;
     localStorage.clear();
     this.admin.Dem = 0;
-    
+    document.getElementById("openButton").click();
+  }
+
+  onAdminClick() {
+    document.getElementById("NavigateBar").style.display = "none";
   }
 }

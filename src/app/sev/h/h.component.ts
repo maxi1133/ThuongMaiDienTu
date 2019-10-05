@@ -11,6 +11,7 @@ export class HComponent implements OnInit {
   constructor(private admin: AdminService, private route: Router) {}
 
   ngOnInit() {
+    document.getElementById("NavigateBar").style.display='none'
     if (this.admin.User.Role != "Admin") {
       alert("Không có quyền truy cập");
       this.route.navigate([""]);

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private admin:AdminService) { }
 
   ngOnInit() {
+    document.getElementById("NavigateBar").style.display='flex'
     this.admin.Admin = false;
     
   }

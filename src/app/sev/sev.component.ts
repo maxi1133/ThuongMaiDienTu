@@ -13,9 +13,12 @@ export class SevComponent implements OnInit {
 
   constructor(private admin: AdminService, private route: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   onLogInClick() {
+    
     this.admin.ListTK.forEach(element => {
       if (this.TK == element.TK && this.MK == element.MK) {
         if (confirm("Save account to Browser ? ")) {

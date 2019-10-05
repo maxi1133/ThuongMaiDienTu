@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:'',pathMatch:"full",redirectTo:"/TrangChu"},
   {path:"TrangChu", component:HomeComponent},
   {path:"Signin" , component:SevComponent},
+  
   {path:'Admin',component:HComponent ,children:[
     {path:'',pathMatch:'full',redirectTo:'Home'},
     {path:'Home',component:AdminhomeComponent},

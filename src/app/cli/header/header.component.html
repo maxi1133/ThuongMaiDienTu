@@ -2,8 +2,8 @@
 
   <a class="navbar-brand" routerLink="" (click)="onHomeClick()">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="openButton">
+    <i class="navbar-toggler-icon"></i>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -36,11 +36,11 @@
         </a>
 
         <div class="dropdown-content">
-          <a *ngIf="admin.User.IsLogIn != true" style="cursor: pointer" routerLink='Signin'
-            (click)="expression">SignIn</a>
+          <a *ngIf="admin.User.IsLogIn != true" style="cursor: pointer" routerLink='Signin'>SignIn</a>
 
           <a *ngIf="admin.User.IsLogIn == true" style="cursor: pointer">User</a>
-          <a *ngIf="admin.User.IsLogIn == true && admin.User.Role =='Admin'" routerLink='Admin' style="cursor: pointer">Admin</a>
+          <a *ngIf="admin.User.IsLogIn == true && admin.User.Role =='Admin'" routerLink='Admin' (click)="onAdminClick()"
+            style="cursor: pointer">Admin</a>
           <a *ngIf="admin.User.IsLogIn == true" style="cursor: pointer" (click)="onLogOut()">Log out</a>
         </div>
       </li>
